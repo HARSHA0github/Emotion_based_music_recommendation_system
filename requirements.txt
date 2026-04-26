@@ -1,0 +1,8 @@
+streamlit==1.56.0
+opencv-python==4.13.0.92
+numpy==2.4.4
+mediapipe==0.10.33
+tensorflow==2.21.0
+keras==3.14.0
+Pillow
+pywhatkit
