@@ -1,16 +1,16 @@
-# 🎧 Emotion-Based Music Recommender
+#  Emotion-Based Music Recommender
 
 An intelligent real-time system that detects user emotions using facial landmarks and recommends music accordingly. The project combines computer vision, machine learning, and an interactive web interface to deliver a personalized music experience.
 
 ---
 
-## 📌 Overview
+##  Overview
 
 This project captures a user's facial expression through a webcam, extracts facial and hand landmarks using MediaPipe, and predicts the user's emotion using a trained machine learning model. Based on the detected emotion, the system dynamically recommends music through YouTube or local storage.
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Real-time emotion detection using webcam  
 - Landmark-based feature extraction (MediaPipe Holistic)  
@@ -22,7 +22,7 @@ This project captures a user's facial expression through a webcam, extracts faci
 
 ---
 
-## 🧠 Tech Stack
+##  Tech Stack
 
 - Frontend: Streamlit  
 - Computer Vision: OpenCV, MediaPipe  
@@ -32,7 +32,7 @@ This project captures a user's facial expression through a webcam, extracts faci
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 Emotion-Music-Recommender/
 │── app.py
@@ -48,7 +48,7 @@ Emotion-Music-Recommender/
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 1. Clone the repository:
 git clone https://github.com/your-username/emotion-music-recommender.git  
@@ -62,7 +62,7 @@ streamlit run app.py
 
 ---
 
-## 🔄 How It Works
+##  How It Works
 
 1. Capture image from webcam  
 2. Extract facial & hand landmarks using MediaPipe  
@@ -73,13 +73,13 @@ streamlit run app.py
 
 ---
 
-## 🎭 Supported Emotions
+##  Supported Emotions
 
 Happy, Sad, Angry, Surprise, Neutral, Rock  
 
 ---
 
-## 📊 Model Details
+##  Model Details
 
 Type: Supervised Learning  
 Architecture: Neural Network (Keras)  
@@ -88,7 +88,7 @@ Output: Emotion class (Softmax)
 
 ---
 
-## ⚠️ Limitations
+##  Limitations
 
 - Single-frame emotion detection  
 - Rule-based recommendation  
@@ -96,7 +96,7 @@ Output: Emotion class (Softmax)
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 - Continuous emotion tracking  
 - Spotify / JioSaavn integration  
@@ -105,19 +105,19 @@ Output: Emotion class (Softmax)
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome. Fork and submit a pull request.
 
 ---
 
-## 📜 License
+##  License
 
 MIT License  
 
 ---
 
-## 👨‍💻 Authors
+##  Authors
 
 Y Harsha Vardhan  
 CHL Pramad  
