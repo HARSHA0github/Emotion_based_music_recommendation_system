@@ -15,7 +15,7 @@ from mediapipe.tasks.python.vision import HolisticLandmarkerOptions
 from mediapipe.tasks.python.vision import RunningMode
 from mediapipe.tasks.python import BaseOptions
 
-# ── Load model & labels ────────────────────────────────────────────────────
+# ── Load model & labels 
 @st.cache_resource
 def load_assets():
     mdl  = load_model("model.h5")
@@ -29,16 +29,16 @@ def load_assets():
 
 model, label, holis = load_assets()
 
-# ── Page ───────────────────────────────────────────────────────────────────
+# ── Page 
 st.header("Emotion Based Music Recommender")
 
-# ── Session state init ─────────────────────────────────────────────────────
+# ── Session state init 
 if "emotion" not in st.session_state:
     st.session_state["emotion"] = ""
 if "captured" not in st.session_state:
     st.session_state["captured"] = False
 
-# ── Emotion-to-Audio Mapping ──────────────────────────────────────────────
+# ── Emotion-to-Audio Mapping 
 EMOTION_MAPPING = {
     "Happy": "upbeat pop feel good",
     "Sad": "acoustic melancholic slow",
@@ -48,7 +48,7 @@ EMOTION_MAPPING = {
     "Rock": "rock intense"
 }
 
-# ── Singer Suggestions Dictionary ──────────────────────────────────────────
+# ── Singer Suggestions Dictionary 
 SINGER_SUGGESTIONS = {
     "english": "Taylor Swift, Ed Sheeran, Ariana Grande, Drake, The Weeknd, Justin Bieber, Billie Eilish, Dua Lipa, Eminem, Bruno Mars",
     "hindi": "Arijit Singh, Shreya Ghoshal, Kishore Kumar, Lata Mangeshkar, Udit Narayan, Neha Kakkar, Jubin Nautiyal, Sonu Nigam, Atif Aslam, Kumar Sanu",
@@ -58,7 +58,7 @@ SINGER_SUGGESTIONS = {
     "telugu": "S.P. Balasubrahmanyam, Sid Sriram, K.S. Chithra, Mangli, Ram Miriyala, Anurag Kulkarni, Geetha Madhuri, Sunitha, S. Janaki, Karthik"
 }
 
-# ── Inputs ─────────────────────────────────────────────────────────────────
+# ── Inputs 
 lang = st.text_input("Language :")
 st.caption("Suggestions: English, Hindi, Spanish, Korean, Tamil, Telugu")
 
@@ -73,7 +73,7 @@ if lang:
 
 img_file = None
 if lang and singer:
-    # ── Camera capture ─────────────────────────────────────────────────────────
+    # ── Camera capture 
     st.markdown("#### Capture your emotion")
     
     if st.session_state["captured"] and st.session_state["emotion"]:
@@ -96,9 +96,6 @@ if img_file is not None:
 
     lst = []
 
-    # ── FIX: res.face_landmarks IS the flat list of NormalizedLandmark ──
-    # res.face_landmarks[0] = first landmark POINT, not first face.
-    # So iterate res.face_landmarks directly and index with [1].
     if res.face_landmarks:
         face_lms = res.face_landmarks          # list of NormalizedLandmark
 
@@ -145,11 +142,11 @@ if img_file is not None:
         st.warning("No face detected — ensure good lighting and face the camera directly.")
         st.session_state["captured"] = False
 
-# ── Emotion status banner ──────────────────────────────────────────────────
+# ── Emotion status banner 
 if not (st.session_state["captured"] and st.session_state["emotion"]) and (lang and singer):
     pass # Already shown success message near camera if captured
 
-# ── Recommend button ───────────────────────────────────────────────────────
+# ── Recommend button 
 if lang and singer:
     st.divider()
     if st.button("Recommend me songs", type="primary"):
@@ -193,11 +190,3 @@ if lang and singer:
                     st.warning(f"No audio files (.mp3, .wav) found in the `{local_folder}` folder.")
             else:
                 st.warning(f"Local folder not found: `{local_folder}`")
-
-            # Reset for next use
-            # We don't reset emotion entirely here, allowing the user to keep playing without retaking photo
-            # The session state handles it, but maybe just reset after a successful run?
-            # User requested "keep the emotion as unaltered if captured already"
-            # So let's NOT reset it here.
-            # st.session_state["emotion"]  = ""
-            # st.session_state["captured"] = False
