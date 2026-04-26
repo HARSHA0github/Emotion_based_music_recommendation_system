@@ -51,7 +51,7 @@ Emotion-Music-Recommender/
 ##  Installation
 
 1. Clone the repository:
-git clone https://github.com/your-username/emotion-music-recommender.git  
+git clone https://github.com/HARSHA0github/Emotion_based_music_recommendation_system.git
 cd emotion-music-recommender  
 
 2. Install dependencies:
